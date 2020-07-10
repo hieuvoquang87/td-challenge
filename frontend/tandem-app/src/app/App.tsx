@@ -35,8 +35,8 @@ function App() {
     <Container>
       <Grid style={gridStyle} container spacing={3}>
         <Grid container item xs={12} spacing={3}>
-          <Grid style={{ backgroundColor: 'gray'}} item xs={12}>
-            Title
+          <Grid item xs={12}>
+            <b>Calculate Mean, Median, Standard Deviation and Modes</b>
           </Grid>
         </Grid>
         <Grid container item xs={12} spacing={3}>
@@ -55,7 +55,7 @@ function App() {
         </Grid>
         <Grid container item xs={12} spacing={3}>
           <Grid item xs={12} md={6} lg={6}>
-            <Button style={{ width: '100%'}} variant="contained" onClick={() => onLoadDataSetSelected(setDataSet)}>Load Data Set</Button>
+            <Button style={{ width: '100%'}} variant="contained" color="primary" onClick={() => onLoadDataSetSelected(setDataSet)}>Load Data Set</Button>
           </Grid>
           <Grid item xs={12} md={6} lg={6}>
             <NewDataPointForm onSubmitNewDataPoint={(input) => onSubmitNewDataPoint(input, setDataSet)}/>
