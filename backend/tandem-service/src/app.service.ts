@@ -22,7 +22,8 @@ export class AppService {
   async getNextDataSet(): Promise<number[]> {
     try {
       this.currentDataSetId = this.currentDataSetId === '0' ? '1' : '0';
-      return this.dataSets[this.currentDataSetId];
+      this.currentDataSet = [...this.dataSets[this.currentDataSetId]];
+      return this.currentDataSet;
     } catch (e) {
       throw new Error('Cannot get next Data Set');
     }
@@ -30,7 +31,8 @@ export class AppService {
 
   async updateCurrentDataSet(newDataPoint: number): Promise<number[]> {
     try {
-      return [...this.dataSets[this.currentDataSetId], newDataPoint]
+      this.currentDataSet = [...this.currentDataSet, newDataPoint]
+      return this.currentDataSet;
     } catch (e) {
       throw new Error('Cannot update current Data Set')
     }

@@ -39,8 +39,11 @@ export class AppController {
   }
 
   @Post('data-point')
-  async setNewDataPoint(@Body() body: { input: number }): Promise<PostReqResponse> {
+  async setNewDataPoint(@Body() body): Promise<PostReqResponse> {
     try {
+      if(isNaN(parseInt(body.input))) {
+        throw new Error('Input is not a number')
+      }
       const resultData = await this.appService.updateCurrentDataSet(Number(body.input))
       return {
         result: ResultCode.OK,
